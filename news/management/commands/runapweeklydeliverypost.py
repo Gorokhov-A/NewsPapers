@@ -1,7 +1,6 @@
 import logging
  
 from django.conf import settings
- 
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.core.management.base import BaseCommand

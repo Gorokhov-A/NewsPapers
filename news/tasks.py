@@ -9,6 +9,7 @@ from .models import Categories, Post
 from datetime import datetime
 from datetime import timedelta
 
+
 @shared_task
 def sendfNewPost(category_id, instance_id):
     category = Categories.objects.get(id = category_id)

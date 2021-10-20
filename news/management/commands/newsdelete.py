@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 #models
 from news.models import Post, Categories
 
+
 class Command(BaseCommand):
     help = 'Delete news in a specific category'
     requires_migrations_checks = True

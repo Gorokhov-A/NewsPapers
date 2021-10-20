@@ -2,7 +2,6 @@ from django.core.cache import cache
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-
 from django.db.models.deletion import CASCADE, SET_NULL
 from django.db.models.fields.related import ForeignKey, OneToOneField
 

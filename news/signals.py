@@ -2,6 +2,7 @@ from django.db.models.signals import m2m_changed, post_save
 from django.template.loader import render_to_string
 from django.dispatch import receiver
 
+
 #celery tasks
 from .tasks import sendfNewPost
 

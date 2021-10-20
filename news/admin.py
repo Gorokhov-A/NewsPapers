@@ -5,6 +5,7 @@ def nullRating(modeladmin, request, queryset):
     queryset.update(post_rating = 0)
 nullRating.short_description = 'Set rating 0'
 
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('post_title', 'id', 'post_date', 'post_rating', 'author')
     list_filter = ('id', 'post_date', 'post_rating')

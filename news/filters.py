@@ -3,6 +3,7 @@ import django_filters
 from .models import Post
 from django.forms import DateInput
 
+
 class PostFilter(FilterSet):
 
     title = django_filters.CharFilter(field_name = 'post_title', lookup_expr = 'icontains', label = 'Title')

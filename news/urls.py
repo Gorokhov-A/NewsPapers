@@ -4,6 +4,7 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 from .views import PostList, PostDetail, PostSearch, PostCreateView, PostDeleteView, PostUpdateView, UserUpdateView, CatigoriesView, upgradeMe, subscribe, unsubscribe
 
+
 urlpatterns = [
     path('', PostList.as_view(), name = 'posts_list'),
     path('categories/', CatigoriesView.as_view(), name = 'categories_list'),

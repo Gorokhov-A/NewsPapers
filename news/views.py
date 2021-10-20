@@ -12,9 +12,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, User
 from django.core.cache import cache
-
 from allauth.account.forms import ChangePasswordForm
-
 from .filters import PostFilter
 from .models import Post, Categories
 from .forms import PostForm, ProfileUpadteForm
