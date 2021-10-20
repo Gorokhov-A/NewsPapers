@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %} 
+
+{% load custom_filters %}
+<!-- Название у нас будет proudcts -->
+{% block title %}
+News
+{% endblock title %}
+ 
+{% block content %}
+
+<h3>Post info</h3>
+<form class="add_form form" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button class="add_button button" type="submit">Add a new post</button>
+</form>
+
+{% endblock content%}

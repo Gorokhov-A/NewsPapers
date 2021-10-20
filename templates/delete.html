@@ -1,0 +1,39 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %} Post delete {% endblock title %}
+
+{% block content %}
+
+<table class="delete_table table">
+    <tr>
+        <td class='delete_column column'>
+            Title
+        </td>
+        <td class='delete_column column'>
+            Date
+        </td>
+        <td class='delete_column column'>
+            Text
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ post.post_title|censor }}
+        </td>
+        <td>
+            {{ post.post_date|date:'d M Y H:m'}}
+        </td>
+        <td>
+            {{ post.post_text|truncatewords:50|censor }}
+        </td>
+    </tr>
+</table>
+
+<form method="POST">
+    {% csrf_token %}
+    <button class="serach_button button" type="submit">Confirm</button>
+</form>
+
+{% endblock content %} 

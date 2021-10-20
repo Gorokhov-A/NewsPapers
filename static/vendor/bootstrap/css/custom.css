@@ -1,0 +1,130 @@
+.preview_title {
+    margin-top: 20px;
+}
+
+.table {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.preview_wrapper {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.column {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.form input, select, textarea {
+    max-height: 50px;
+    min-height: 50px;
+    max-width: 150px;
+    margin-right: 10px;
+}
+
+.form textarea {
+	outline: none;
+	resize: none;
+    align-items: center;
+}
+
+.id_post_text {
+    text-align: center;
+}
+
+.button {
+    margin-left: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.loginform_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.login_form_wrapper {
+    margin: 0 auto;
+    margin-top: 10vw;
+    border: solid;
+    border-color: rgb(0, 145, 41);
+    border-radius: 10px;
+    display: block;
+    width: 30%;
+}
+
+.socialaccount_providers {
+    width: 100%;
+}
+
+.socialaccount_providers li{
+    list-style: none;
+    text-decoration: none;
+}
+
+.socialaccount_providers a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.login {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.user_info {
+    text-align: center;
+}
+
+.user_info_wrapper {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 30%;
+}
+
+.user_info_button.button {
+    margin: 0;
+}
+
+.user_info_buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.password_button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.logout_button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.loginform_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+.loginform_wrapper h1 {
+    width: 100%;
+}

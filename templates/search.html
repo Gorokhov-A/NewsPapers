@@ -1,0 +1,84 @@
+{% extends 'flatpages/default.html' %} 
+
+{% load custom_filters %}
+
+{% block title %}
+Search
+{%endblock title %}
+
+{% block content %}
+<div class="form_wrapper">
+    <h1 class="preview_title title">Post serach</h1>
+    <hr>
+    <form class="serach_form form" method="GET">
+        {{ filter.form }}
+        <button class="serach_button button" type="submit">Search</button>
+    </form>
+    <table class="serach_table table">
+        <tr>
+            <td class='table_column column'>
+                Title
+            </td>
+            <td class='table_column column'>
+                Date
+            </td>
+            <td class='table_column column'>
+                Text
+            </td>
+        </tr>
+    {% for post in filter.qs %}
+        <tr>
+            <td>
+                {{ post.post_title|censor }}
+            </td>
+            <td>
+                {{ post.post_date|date:'d M Y H:m'}}
+            </td>
+            <td>
+                {{ post.post_text|truncatewords:50|censor }}
+            </td>
+        </tr>
+    {% endfor %}    
+    </table>
+
+{% if is_paginated %}
+
+<div class="search_pagination pagination">
+    <nav aria-label="...">
+        <ul class="pagination">
+
+            {% if page_obj.has_previous %}
+
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" tabindex="-1">First</a>
+                </li>
+
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range%}
+
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="">{{ num }} <span class="sr-only">(current)</span></a>
+                    </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+
+            {% endfor %} 
+
+            {% if page_obj.has_next %}
+
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages}}">Last</a>
+                </li>
+
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+{% endif %}
+
+</div>
+{% endblock content %}

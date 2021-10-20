@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %} 
+
+{% load custom_filters %}
+{% load cache %}
+
+{% block title %} Catigories {% endblock title %}
+
+{% block content %}
+{% if categories %}
+    <table class="detail_table table">
+        <tr>
+            <td class='detail_column column'>
+                Name
+            </td>
+            <td class='detail_column column'>
+                Options
+            </td>
+        </tr>
+        {% for category in categories %}
+            <tr>
+                <td>
+                    {{ category }}
+                </td>
+                <td>
+                    {% if user in category.subscribers.all %}
+
+                        <a href="{% url 'unsubscribe' category.id %}"> Unsubscribe</a>  
+
+                    {% else %}
+
+                        <a href="{% url 'subscribe' category.id %}"> Subscribe</a>
+
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<h1>No catigories</h1>
+{% endif %}
+
+{% endblock content %}

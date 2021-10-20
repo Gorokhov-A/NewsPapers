@@ -1,0 +1,44 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %} 
+ 
+{% load custom_filters %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+Post
+{% endblock title %}
+ 
+<!-- В контенте на странице мы выводим сам товар, айди которого было передано в адрес -->
+{% block content %}
+{% if post %}
+        <table class="detail_table table">
+            <tr>
+                <td class='detail_column column'>
+                    Title
+                </td>
+                <td class='detail_column column'>
+                    Date
+                </td>
+                <td class='detail_column column'>
+                    Text
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ post.post_title|censor }}
+                </td>
+                <td>
+                    {{ post.post_date|date:'d M Y H:m'}}
+                </td>
+                <td>
+                    {{ post.post_text|censor }}
+                </td>
+            </tr>
+        </table>
+        <a href="{% url 'posts_list' %}"><u>Home</u></a>
+        
+{% else %}
+    <h2>No news</h2>
+{% endif %}
+
+{% endblock content %}

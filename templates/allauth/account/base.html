@@ -1,0 +1,42 @@
+{% extends 'flatpages/default.html' %} 
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    <link href="{% static 'vendor/bootstrap/css/custom.css' %}" rel="stylesheet">
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="loginform_wrapper form">
+      {% block body %}
+      
+      {% if messages %}
+      <div>
+        <strong>Messages:</strong>
+        <ul>
+          {% for message in messages %}
+          <li>{{message}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="login_menu_wrapper menu">
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+          <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      {% block content %}
+      {% endblock %}
+      {% endblock %}
+      {% block extra_body %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

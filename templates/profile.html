@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %} 
+
+{% load custom_filters %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+
+<h3>User Info</h3>
+<div class='user_info_wrapper'>
+    <form class="user_info" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="user_info_button button" type="submit">Save</button>
+    </form>
+
+    <div class="user_info_buttons">
+        <hr>
+        <button class="password_button"> <a href="/accounts/password/set/"> Change password </a> </button>
+        <hr>
+        <button class="logout_button"> <a href="{% url 'logout' %}"> Logout </a> </button>
+        <hr>
+        {% if is_not_author %}
+        <button> <a href="{% url 'upgrade' %}"> Become author</a> </button>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content%}
